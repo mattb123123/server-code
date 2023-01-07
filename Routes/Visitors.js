@@ -9,10 +9,10 @@ const visitorRoute = router.post("/visitors", (req, res) => {
   document.save((error, result) => {
     if (error) {
       console.error(error);
-      res.status(500).send({ error: "Error saving data to the database" });
+      res.status(500).send({ error: "." });
       return;
     }
-    res.send({ result: "Data saved to the database" });
+    // res.send({ result: "Data saved to the database" });
   });
 });
 
