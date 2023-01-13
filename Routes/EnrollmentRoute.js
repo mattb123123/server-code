@@ -5,7 +5,7 @@ const router = express.Router();
 
 const enrollmentRoute = router.post("/pageen", (req, res) => {
   const document = new Enrollment({ ...req.body, visitor: req.body.visitorId });
-  console.log(req.body);
+  //   console.log(req.body);
   document.save((error, result) => {
     if (error) {
       console.error(error);
