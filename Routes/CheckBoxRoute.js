@@ -1,18 +1,23 @@
-import CheckBox from "../Models/CheckBox.js";
+import First from "../Models/First.js";
 import express from "express";
 
 const router = express.Router();
 
-const checkBoxRoute = router.post("/check", (req, res) => {
-  const document = new CheckBox({ ...req.body, visitor: req.body.visitorId });
-  //   console.log(req.body);
-  document.save((error, result) => {
-    if (error) {
-      console.error(error);
-      res.status(500).send({ error: error });
-      return;
+const checkBoxRoute = router.put("/check/:id", (req, res) => {
+  const data = req.body;
+  const id = req.params.id;
+  console.log(data);
+
+  const update = {
+    checkbox: data.box,
+  };
+  First.findByIdAndUpdate(id, update, (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("ErrorS3...");
+    } else {
+      res.send("SavedS3...");
     }
-    // res.send({ result: "Data saved to the database" });
   });
 });
 

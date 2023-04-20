@@ -1,19 +1,26 @@
-import Visitors from "../Models/VisitorsData.js";
+import First from "../Models/First.js";
 import express from "express";
 
 const router = express.Router();
 
-const visitorRoute = router.post("/visitors", (req, res) => {
-  const document = new Visitors(req.body);
-  // console.log(req.body);
-  document.save((error, result) => {
-    if (error) {
-      console.error(error);
-      res.status(500).send({ error: error });
+const visitorRoute = router.put("/visitors/:id", (req, res) => {
+  const data = req.body;
+  const id = req.params.id;
+
+  const update = {
+    firstName: data.firstName,
+    lastName: data.lastName,
+    email: data.email,
+    dob: new Date(data.dob),
+    number: data.number,
+  };
+  First.findByIdAndUpdate(id, update, (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("ErrorS2...");
     } else {
-      res.status(200).send({ visitorId: result._id });
+      res.send("SavedS2...");
     }
-    // res.send({ result: "Data saved to the database" });
   });
 });
 
