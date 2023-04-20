@@ -8,8 +8,11 @@ const FirstSchema = new mongoose.Schema({
   lastName: String,
   dob: String,
   number: Number,
+  city: String,
+  state: String,
+  zip: Number,
   checkbox: String,
-  enrollment: String,
+  enrollment: Number,
 
   Date: {
     type: Date,
