@@ -6,7 +6,6 @@ const router = express.Router();
 const checkBoxRoute = router.put("/check/:id", (req, res) => {
   const data = req.body;
   const id = req.params.id;
-  console.log(data);
 
   const update = {
     checkbox: data.box,

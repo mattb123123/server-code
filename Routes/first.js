@@ -5,10 +5,8 @@ const router = express.Router();
 
 const firstRoute = router.post("/first", (req, res) => {
   const url = req.body.url;
-  const referrer = req.body.referrer;
   const data = new First({
     url: url,
-    referrer: referrer,
   });
   data.save((err, doc) => {
     if (err) {
