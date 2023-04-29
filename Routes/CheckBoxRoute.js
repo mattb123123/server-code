@@ -8,7 +8,7 @@ const checkBoxRoute = router.put("/check/:id", (req, res) => {
   const id = req.params.id;
 
   const update = {
-    checkbox: data.box,
+    checkbox: data.programs,
   };
   First.findByIdAndUpdate(id, update, (err) => {
     if (err) {

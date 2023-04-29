@@ -11,8 +11,9 @@ const visitorRoute = router.put("/visitors/:id", (req, res) => {
     firstName: data.firstName,
     lastName: data.lastName,
     email: data.email,
-    dob: new Date(data.dob),
+    birthYear: data.doy,
     number: data.number,
+    promo: data.promo,
   };
 
   First.findByIdAndUpdate(id, update, (err) => {

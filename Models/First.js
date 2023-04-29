@@ -6,12 +6,15 @@ const FirstSchema = new mongoose.Schema({
   email: String,
   firstName: String,
   lastName: String,
-  dob: String,
+  birthYear: Number,
   number: Number,
+  promo: String,
+  street: String,
+  apartment: String,
   city: String,
   state: String,
   zip: Number,
-  checkbox: String,
+  checkbox: [{ type: String }],
   enrollment: Number,
 
   Date: {
