@@ -12,6 +12,7 @@ const pageTwoRoute = router.put("/page-two/:id", (req, res) => {
     city: data.city,
     state: data.state,
     zip: data.zip,
+    addressType: data.addressType,
   };
   First.findByIdAndUpdate(id, update, (err) => {
     if (err) {

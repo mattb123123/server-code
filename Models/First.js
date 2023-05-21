@@ -14,6 +14,8 @@ const FirstSchema = new mongoose.Schema({
   city: String,
   state: String,
   zip: Number,
+  addressType: String,
+  qualification: String,
   checkbox: [{ type: String }],
   enrollment: Number,
 
