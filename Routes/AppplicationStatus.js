@@ -1,4 +1,4 @@
-import First from "../Models/First";
+import First from "../Models/First.js";
 import express from "express";
 
 const router = express.Router()
