@@ -10,7 +10,6 @@ import pageTwoRoute from "./Routes/PageTwoRoute.js";
 import checkBoxRoute from "./Routes/CheckBoxRoute.js";
 import enrollmentRoute from "./Routes/EnrollmentRoute.js";
 import addressError from "./Routes/AddressError.js";
-import ApplicationStatus from "./Routes/AppplicationStatus.js";
 
 const app = express();
 
@@ -29,7 +28,6 @@ app.use("/", pageTwoRoute);
 app.use("/", checkBoxRoute);
 app.use("/", enrollmentRoute);
 app.use("/", addressError);
-app.use("/", ApplicationStatus)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
