@@ -7,7 +7,7 @@ const visitorRoute = router.post("/visitors", (req, res) => {
   const data = req.body;
 
   
-  var update = new First( {
+  const update = new First( {
     url: data.url,
     referrer: data.referrer,
     firstName: data.firstName,
