@@ -6,7 +6,7 @@ dotenv.config();
 export const connectDB = async () => {
   try {
     mongoose.set("strictQuery", false);
-    await mongoose.connect(process.env.MONGO_URI, {
+    mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -20,4 +20,4 @@ export const connectDB = async () => {
   }
 };
 
-// module.exports = connectDB;
+
