@@ -3,23 +3,12 @@ import express from "express";
 
 const router = express.Router();
 
-const visitorRoute = router.post("/visitors", (req, res) => {
-  const data = req.body;
-
-  
-  var update = new First( {
-    url: data.url,
-    referrer: data.referrer,
-    firstName: data.firstName,
-    lastName: data.lastName,
-    email: data.email,
-    birthYear: data.doy,
-    number: data.number,
-    promo: data.promo,
+const firstRoute = router.post("/first", (req, res) => {
+  const url = req.body.url;
+  const data = new First({
+    url: url,
   });
-
-
-  update.save((err, doc) => {
+  data.save((err, doc) => {
     if (err) {
       console.error(err);
       res.status(500).send({ error: "Error saving data to database" });
@@ -27,8 +16,6 @@ const visitorRoute = router.post("/visitors", (req, res) => {
       res.send({ _id: doc._id });
     }
   });
-
-
 });
 
-export default visitorRoute;
+export default firstRoute;
