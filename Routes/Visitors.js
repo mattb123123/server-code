@@ -4,14 +4,9 @@ import express from "express";
 const router = express.Router();
 
 const visitorRoute = router.put("/visitors/:id", (req, res) => {
-															 
   const data = req.body;
   const id = req.params.id;
-  const update = { 
-
-
-						   
-    url: data.url,		  
+  const update = {
     referrer: data.referrer,
     firstName: data.firstName,
     lastName: data.lastName,
@@ -39,20 +34,13 @@ const visitorRoute = router.put("/visitors/:id", (req, res) => {
   };
 
   First.findByIdAndUpdate(id, update, (err) => {
-	 
-
-
-							 
     if (err) {
       console.error(err);
       res.status(500).send("ErrorS2...");
-																	   
     } else {
       res.send("SavedV...");
-	res.send({ _id: doc._id });							 
-	}
+    }
   });
 });
 
 export default visitorRoute;
-
