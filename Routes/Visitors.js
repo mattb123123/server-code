@@ -1,6 +1,3 @@
-ORIGINAL
-
-
 import First from "../Models/First.js";
 import express from "express";
 
