@@ -4,9 +4,14 @@ import express from "express";
 const router = express.Router();
 
 const visitorRoute = router.put("/visitors/:id", (req, res) => {
+const visitorRoute = router.post("/visitors", (req, res) => {
   const data = req.body;
   const id = req.params.id;
   const update = {
+
+
+  var update = new First( {
+    url: data.url,
     referrer: data.referrer,
     firstName: data.firstName,
     lastName: data.lastName,
@@ -34,13 +39,23 @@ const visitorRoute = router.put("/visitors/:id", (req, res) => {
   };
 
   First.findByIdAndUpdate(id, update, (err) => {
+  });
+
+
+  update.save((err, doc) => {
     if (err) {
       console.error(err);
       res.status(500).send("ErrorS2...");
+      res.status(500).send({ error: "Error saving data to database" });
     } else {
       res.send("SavedV...");
+      res.send({ _id: doc._id });
     }
   });
+   
+
+							
+
 });
 
-export default visitorRoute;
+export default visitorRoute;	
